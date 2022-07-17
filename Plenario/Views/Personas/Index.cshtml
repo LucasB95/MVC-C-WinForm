@@ -1,0 +1,82 @@
+﻿@model IEnumerable<Plenario.Models.Personas>
+@{ Layout = "_Layout"; ViewBag.Title = "Lista de Personas";}
+
+<h2>Todos las personas registradas</h2>
+<div class="container">
+    <div class="row">
+               <div class="col-xs-6 col-sm-6 col-lg-6 col-md-6">
+                    <a asp-action="AgregarPersona" class="btn btn-sm btn-primary">Agregar Persona</a>
+                </div>
+                 <div class="col-xs-6 col-sm-6 col-lg-6 col-md-6" style="text-align:right">
+                     <form asp-action="Index" method="post">
+                         @Html.TextBox("Nombre","")
+                         <button type="submit" class="btn btn-sm btn-primary">Buscar</button>
+                         <a asp-controller="Personas" asp-action="Index" class="btn btn-sm btn-primary">Traer todo</a>
+                     </form>
+                </div>
+    </div>
+
+</div>
+
+
+
+<table class="table table-sm table-striped table-bordered m-2">
+    <thead>
+        <tr>
+            <th>PersonalID</th>
+            <th>Nombre</th>
+            <th>FechaNacimiento</th>
+            <th>CreditoMaximo</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var m in Model)
+        {
+            <tr>
+                <td>@m.PersonalID</td>
+                <td>@m.Nombre</td>
+                <td>@m.FechaNacimiento</td>
+                <td>@m.CreditoMaximo</td>
+                <td>
+                    <a asp-action="ModificarPersona" class="btn btn-sm btn-primary" asp-route-PersonalID="@m.PersonalID">
+                       Modificar
+                    </a>
+                    <a asp-controller="Telefonos" asp-action="Index" class="btn btn-sm btn-primary" asp-route-PersonalID="@m.PersonalID">
+                       Telefonos
+                    </a>
+                     <a class="btn btn-sm btn-danger" onclick="DarBaja('@m.PersonalID')">Eliminar</a>                  
+                </td>
+            </tr>
+
+        }
+    </tbody>
+</table>
+
+@section Scripts{
+
+   <script>
+
+        function DarBaja(PersonalID) {
+
+            var respuesta = confirm("¿Seguro que quiere Eliminar a la persona?");
+
+            if (respuesta == true) {
+                $.ajax({
+                    type: "Post",
+                     url: "/Personas/BorrarPersona",
+                    data: { "PersonalID": PersonalID},
+                    success: function (result) {
+                        alert(result.contenido);
+                        location.reload();
+                    }
+                })
+            }else if (r == false) {
+                        location.href = '/';
+            }
+        }
+   
+   </script>
+
+
+}

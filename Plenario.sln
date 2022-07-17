@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32210.238
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Plenario", "Plenario\Plenario.csproj", "{987617AF-8FDE-4030-B6CF-40A354403BC7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlenarioForms", "PlenarioForms\PlenarioForms.csproj", "{718613AF-87F6-4049-BA2F-09A6C67991CC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{987617AF-8FDE-4030-B6CF-40A354403BC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{987617AF-8FDE-4030-B6CF-40A354403BC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{987617AF-8FDE-4030-B6CF-40A354403BC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{987617AF-8FDE-4030-B6CF-40A354403BC7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{718613AF-87F6-4049-BA2F-09A6C67991CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{718613AF-87F6-4049-BA2F-09A6C67991CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{718613AF-87F6-4049-BA2F-09A6C67991CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{718613AF-87F6-4049-BA2F-09A6C67991CC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0A1D5DB0-C5FF-411F-B3E7-94BE9F5060C5}
+	EndGlobalSection
+EndGlobal

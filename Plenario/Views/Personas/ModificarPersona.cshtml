@@ -1,0 +1,38 @@
+﻿@model Plenario.Models.Personas
+
+@{
+    ViewData["Title"] = "Modificar Persona";
+}
+
+<h1 class="traducir">Modificar Persona</h1>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="ModificarPersonasBD">
+             <input type="hidden" name="PersonalID" value="@Model.PersonalID" />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Nombre" class="control-label traducir"></label>
+                <input asp-for="@Model.Nombre" class="form-control" />
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FechaNacimiento" class="control-label traducir"></label>
+                <input asp-for="@Model.FechaNacimiento" class="form-control" type="date" />
+                <span asp-validation-for="FechaNacimiento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CreditoMaximo" class="control-label traducir"></label>
+                <input asp-for="@Model.CreditoMaximo" class="form-control" />
+                <span asp-validation-for="CreditoMaximo" class="text-danger"></span>
+            </div>
+        <div class="form-group" style="padding-top:2%">
+            <button type="submit" value="Crear" class="btn btn-primary traducir">Crear</button>
+            <a asp-action="Index" class="btn btn-danger traducir">Cancelar</a>
+
+        </div>
+        </form>
+    </div>
+</div>

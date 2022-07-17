@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Plenario.Models.Telefonos>
+@{ Layout = "_Layout"; ViewBag.Title = "Lista de Telefonos";}
+
+<h2>Todos los Telefonos registrados para la Persona Seleccionada</h2>
+<a asp-action="AgregarTelefono" class="btn btn-sm btn-primary">Agregar Telefono</a>
+
+<table class="table table-sm table-striped table-bordered m-2">
+    <thead>
+        <tr>
+            <th>TelefonoID</th>
+            <th>PersonaID</th>
+            <th>Telefono</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var m in Model)
+        {
+            <tr>
+                <td>@m.TelefonoID</td>
+                <td>@m.PersonaID</td>
+                <td>@m.Telefono</td>
+                <td>
+                    <a asp-action="ModificarTelefono" class="btn btn-sm btn-primary" asp-route-TelefonoID="@m.TelefonoID">
+                       Modificar
+                    </a>
+                     <a class="btn btn-sm btn-danger" onclick="DarBaja('@m.TelefonoID')">Eliminar</a>                  
+                </td>
+            </tr>
+
+        }
+    </tbody>
+</table>
+
+<a asp-controller="Personas" asp-action="Index" class="btn btn-sm btn-primary">Volver a Personas</a>
+
+@section Scripts{
+
+   <script>         
+
+        function DarBaja(TelefonoID) {
+
+            var respuesta = confirm("¿Seguro que quiere Eliminar el telefono asociado?");
+
+            if (respuesta == true) {
+                $.ajax({
+                    type: "Post",
+                     url: "/Telefonos/BorrarTelefono",
+                    data: { "TelefonoID": TelefonoID},
+                    success: function (result) {
+                        alert(result.contenido);
+                        location.reload();
+                    }
+                })
+            }else if (r == false) {
+                        location.href = '/';
+            }
+        }
+   
+   </script>
+
+
+}

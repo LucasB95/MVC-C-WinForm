@@ -1,0 +1,30 @@
+﻿@model Plenario.Models.Telefonos
+
+@{
+    ViewData["Title"] = "Agregar Telefono";
+}
+
+<h1 class="traducir">Agregar Telefono para:</h1>
+<h4 class="traducir">@ViewBag.Persona</h4>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="ModificarTelefonoBD">
+              <input type="hidden" name="PersonaID" value="@Model.PersonaID" />
+               <input type="hidden" name="TelefonoID" value="@Model.TelefonoID" />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Telefono" class="control-label traducir"></label>
+                <input asp-for="@Model.Telefono" class="form-control" />
+                <span asp-validation-for="Telefono" class="text-danger"></span>
+            </div>
+        <div class="form-group" style="padding-top:2%">
+            <button type="submit" value="Crear" class="btn btn-primary traducir">Guardar</button>
+            <a asp-action="Index" class="btn btn-danger traducir">Cancelar</a>
+
+        </div>
+        </form>
+    </div>
+</div>
